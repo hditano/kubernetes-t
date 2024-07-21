@@ -1,0 +1,18 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythonserver
+  template:
+    metadata:
+      labels:
+        app: pythonserver
+    spec:
+      containers:
+        - name: python-server
+          image: hditano/python-server:latest
