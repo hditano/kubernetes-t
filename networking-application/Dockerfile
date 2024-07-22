@@ -2,6 +2,12 @@ FROM python:alpine3.20
 
 WORKDIR /app
 
-COPY ./server.py .
+COPY ./requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 8080
 
 ENTRYPOINT [ "python", "server.py" ]
